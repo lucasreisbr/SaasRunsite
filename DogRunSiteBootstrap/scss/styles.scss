@@ -1,0 +1,240 @@
+@import "bootstrap";
+
+iframe {width:100%; height: 70vh; border: none;}
+
+.bg-header {
+    background-image: url("../img/bg_scoob.jpg");
+    background-size: cover;  
+    background-repeat: no-repeat;
+    background-position: center; 
+    height: 100vh;
+    width: 100%; 
+    @media (max-width:1024px){
+        height: 40vh;
+    } 
+}
+
+.text-yellow {
+    color: $amarelo2;
+}
+
+.bg-preto {
+    background-color: #000;
+}
+
+.bg-yellow {
+    background-color: $amarelo2;
+}
+
+.bg-verde {
+    background-color: $verdeaqua;
+}
+
+.bg-amarelo {
+    background-color: $amareloscoob;
+}
+
+.bg-orange {
+    background-color: $orangescoob;
+}
+
+.hideandshow {
+    margin: 0px;
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}
+
+.force-100 {
+    margin: 0;
+    @media (max-width: 1024px){
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+
+h5{
+    font-size: 1.25rem;
+    @media (max-width:414px){
+        font-size: 0.8rem; 
+    }
+}
+
+.top-header {
+    margin-top: 0px;
+    @media (min-width:1600px) and (max-width:1920px){
+        margin-top: 9em !important;      
+    } 
+}
+
+.bottom-header {
+    margin-top: 0px;
+    @media (min-width:1600px) and (max-width:1920px) {
+        margin-bottom: 6em !important;   
+    } 
+}
+
+.stl-btn {
+    font-family: $font-family-scoob;
+    color: white;
+    font-size: 2rem;
+    background-color: $orangescoob;
+    border-color: $orangescoob;
+    width: 25%;
+    @media (max-width:1024px) {
+        width: 100%;
+    }
+    @media (min-width: 320px) and (max-width: 375px){
+        font-size: 1.5rem; 
+        width: 100%; 
+    }
+}
+
+.stl-btn2 {
+    font-family: $font-family-scoob;
+    color: white;
+    font-size: 2rem;
+    background-color: $orangescoob;
+    border-color: $orangescoob;
+}
+
+.bg-menu {
+    background: $verdeaqua;
+}
+
+.bg-colorido {
+    background: $blue linear-gradient(180deg, mix($body-bg, $teal, 10%), $amarelo1) repeat-x;
+    
+}
+
+.bg-grey-footer {
+    @include gradient-directional($start-color: $gray-500, $end-color: $gray-900, $deg: 15deg);
+}
+
+.bg-scoob-footer {
+    @include gradient-directional($start-color: $orangescoob, $end-color: $verdecapim, $deg: 15deg);
+}
+
+.bg-scoob {
+    background-color: $verdeaqua;
+}
+
+.bg-scoob2 {
+    background-color: $verdecapim;
+}
+
+.show-no-bg {
+    display: inline;
+    @media (max-width:991px){
+        display: none;
+    }
+}
+
+.show-in-bg {
+    display: none;
+    @media (max-width:991px){
+        display: inline;
+    }
+}
+
+.nav-link {
+    color: $orangetext !important; 
+}
+
+.menu-dir {
+    right: 1em;
+    left: auto;
+    position: absolute;
+    font-family: $font-family-scoob2;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: $orangetext;
+    @media (max-width:991px) {
+        position: relative;
+    }
+}
+
+.dropdown-menu {
+    background-color: $verdecapim;
+    text-align: right !important;
+    font-family: $font-family-scoob2;
+}
+
+
+.border-top {
+    border-top: 0.1em solid #000 !important; 
+}
+
+/*BOTÃO VOLTA TOPO*/
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: $black;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 25%;
+  }
+  
+  .sponsor {
+      list-style: none;
+      li {
+          display: inline;
+          margin: 15px;
+      }
+      img {
+          height: 2.5rem;
+      }
+  }
+
+  #myBtn:hover {
+    background-color: #555;
+  }
+/*BOTÃO VOLTA TOPO*/
+
+.footer-menu ul {
+    display: table;
+    list-style: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+.social-menu {
+    list-style: none;
+    display: table;
+    margin: 0;
+    padding: 0;
+}
+
+.social-menu li {
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+.img-gallery a{
+    float: left;
+    width: 23.0%;
+    margin: 1%;
+    display: block;
+    border-bottom: #fbd331 3px solid;
+    transition: ease-in-out 0.3s;
+}
+
+.img-gallery a:hover {
+    border-bottom: #fbd331 3px solid;
+    transition: ease-in-out 0.3s;
+    transform: scale(1.3,1.3);
+}
+
+#reg-body h4{
+    color: #000 !important;
+    text-align: left !important;
+}

@@ -1,0 +1,737 @@
+<!--#include virtual = "bibliotecas/asp/biblioteca.asp"-->
+
+<%
+OpenConn
+Set rs = Server.CreateObject("ADODB.Recordset")
+evento_ID	=	1931 'isnum(nvl(Request.QueryString("evento_ID"), Request.Form("evento_ID")))
+
+%>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Batman Run Series</title>
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">-->
+    <meta name="author" content="Yescom">
+    <meta name="description" content="Tem c&atilde;orrida, c&atilde;ominhada e muito mais! &Eacute; a 6&ordf; C&atilde;orrida do Shopping Aricanduva!">
+    <meta name="keywords" content="">
+     <!-- Mobile Devices Viewport Resset>-->
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!--<meta name="apple-mobile-web-app-capable" content="yes">-->
+     <!-- IE Compatibility mode off-->
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link href="css/default.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/lightbox.css" rel="stylesheet" type="text/css" media="all" />
+   
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/lightbox.js"></script>
+	<!-- Scroll Top Script -->
+	<script type="text/javascript">
+		var amountScrolled = 300;
+		$(window).scroll(function() {
+			if ( $(window).scrollTop() > amountScrolled ) {
+				$('a.back-to-top').fadeIn('slow');
+			} else {
+				$('a.back-to-top').fadeOut('slow');
+			}
+		});
+		$('a.back-to-top, a.simple-back-to-top').click(function() {
+			$('html, body').animate({
+				scrollTop: 0
+			}, 700);
+			return false;
+		});
+	</script>
+    
+    <!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/files/css3-mediaqueries.js"></script>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        (function(n,v,g){o='Navegg';if(!n[o]){ a=v.createElement('script');a.src=g;b=document.getElementsByTagName('script')[0];
+        b.parentNode.insertBefore(a,b);n[o]=n[o]||function(parms){
+        n[o].q=n[o].q||[];n[o].q.push([this, parms])};} })
+        (window, document, 'https://tag.navdmp.com/universal.min.js');
+        window.naveggReady = window.naveggReady||[];
+        nvg51848 = new Navegg({
+        acc: 51848
+        });
+    </script>
+</head>
+
+<body id="Topo">
+    <script language='JavaScript1.1' async src='//pixel.mathtag.com/event/js?mt_id=1336668&mt_adid=195681&mt_exem=&mt_excl=&v1=&v2=&v3=&s1=&s2=&s3='></script>
+	
+	<a href="#Topo" class="back-to-top" title="Voltar para cima"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
+    <div id="MainFrame">
+
+        <header>
+                <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Destaques</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Preços</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Link dropdown
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Ação</a>
+                                <a class="dropdown-item" href="#">Outra ação</a>
+                                <a class="dropdown-item" href="#">Algo mais aqui</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+
+            <!--          
+            <nav id="main-menu">
+                <ul>
+                    <li><a href="#Topo" class="scroll" style="color: #0a5f70 !important;">Home</a></li>
+                    <li><a href="inscricao.html">Inscri&ccedil;&otilde;es</a></li> 
+                    <li><a href="" data-toggle="modal" data-target="#regulamento">Regulamento</a></li>
+                    <li><a href="" data-toggle="modal" data-target="#resultados">Resultados</a></li>
+                    <li><a href="#FotosFrame" class="scroll">Fotos</a></li>
+                    <li><a href="#TitlePercurso" class="scroll">Percurso</a></li>
+                    <li><a href="#KitFrame" class="scroll">Kit</a></li>
+                    <li><a href="" data-toggle="modal" data-target="#fale-conosco">Fale Conosco</a></li>
+                </ul>
+            </nav>
+             -->
+            <!-- 
+            <nav id="responsive-menu">
+                <ul>
+                    <li><a href="#" class="scroll">Menu<span class="CloseMenu"></span></a>
+                        <ul class="Submenu">
+                            <li><a href="#Topo" class="scroll">Home</a></li>
+                            <li><a href="inscricao.asp">Inscri&ccedil;&otilde;es</a></li>                            
+                            <li><a href="" data-toggle="modal" data-target="#regulamento">Regulamento</a></li>
+                            <li><a href="" data-toggle="modal" data-target="#resultados">Resultados</a></li>
+                            <li><a href="#FotosFrame" class="scroll">Fotos</a></li>
+                            <li><a href="#TitlePercurso" class="scroll">Percurso</a></li>
+                            <li><a href="#KitFrame" class="scroll">Kit</a></li>
+                            <li><a href="" data-toggle="modal" data-target="#fale-conosco">Fale Conosco</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            -->
+
+            <div class="container">
+                <div class="row" id="intro">
+                    
+					<div class="col-md-7 intro-text">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="hyper-text" style="color: #fff !important;">Venha correr ou caminhar com seu amig&atilde;o no maior Shopping da Am&eacute;rica Latina.
+								venha participar com o seu amig&atilde;o da <span class="text-yellow">7&ordf; c&atilde;orrida</span> no maior shopping da Am&eacute;rica latina.
+								</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+							 <div class="col-md-6">
+                                <h2 style="color: #fff !important;">Sorteio de brindes e v&aacute;rios pr&ecirc;mios.</h2>
+                            </div>
+                            <div class="col-md-6">
+                                <h2 style="color: #fff !important;">
+                                    14/julho/2019<br>
+                                    A partir das 8h
+                                </h2>
+                                <h2 style="font-size: 48px !important; text-align:center; color: #fff !important;">R$ 35,00</h2>
+                                <a class="singleButton btn-verde" href="inscricao.asp" target="_blank">Inscreva-se aqui</a>
+                            </div>
+                           
+                        </div>
+
+                    </div>					
+                </div>
+                
+            </div>
+
+        </header>
+    
+		<section id="SobreFrame" class="FullContainer">
+            <div class="inside-container">
+                <div id="SobreEvento">
+                <figure>
+                    <img src="img/char.png" class="img-center img-responsive" alt="Vem correr 6&ordf; C&atilde;orrida Shopping Aricanduva">
+                </figure>
+                <p>Em 2018, C&atilde;orrida Shopping Aricanduva reuniu mais de 1.300 participantes e seus pets e movimentou a manh&atilde; de domingo do shopping! Por isso, a C&atilde;orrida Shopping Aricanduva vem na sua 6&deg; edi&ccedil;&atilde;o com percurso de 1,3 km <strong>(C&atilde;orrida e C&atilde;ominhada)</strong> e arena montada no Centro Comercial Aricanduva para os atletas e seus pets fazerem bonito! Durante o evento, os participantes poder&atilde;o concorrer a muitos pr&ecirc;mios e brindes. Participe, n&atilde;o v&aacute; ficar de fora!</p>
+                <p>
+                	<strong>A prova oferecer&aacute; infraestrutura (apoio m&eacute;dico, acessos, hidrata&ccedil;&atilde;o, lanches) para o n&uacute;mero oficial de inscritos.
+                	N&atilde;o ser&atilde;o disponibilizados recursos extras para atletas que n&atilde;o estejam inscritos oficialmente ("pipocas").</strong>
+                </p>
+                <br />
+                <a class="singleButton btn-verde" href="inscricao.asp" target="_blank">Inscreva-se</a>
+                </div>
+                
+                <div id="ComoChegar">
+                    <div class="BoxComoChegar">
+                        <figure><img src="img/icone_estacionamento.png" /></figure>
+                        <h4>ESTACIONE</h4>
+                        <p><strong>gratuitamente</strong> no Shopping Aricanduva!</p>
+                        <a class="singleButton btn-verde" href="http://www.aricanduva.com.br/como-chegar.php" target="_blank">SAIBA MAIS</a>
+                    </div>
+                    
+                    <div class="BoxComoChegar">
+                        <figure><img src="img/icone_carro.png" /></figure>
+                        <h4>VAI DE CARRO?</h4>
+                        <p>Veja chegar no Shopping Aricanduva de carro!</p>
+                        <a class="singleButton btn-verde" href="https://www.google.com.br/maps/dir//Shopping+Leste+Aricanduva+-+Avenida+Aricanduva,+5555+-+Jardim+Aricanduva,+S%C3%A3o+Paulo+-+SP,+03527-900/@-23.5657599,-46.5391593,13z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x94ce676edd286c5f:0x4b56801d4922f046!2m2!1d-46.5041399!2d-23.5658425!3e0" target="_blank">COMO CHEGAR</a></li>
+                    </div>
+                
+                    <div class="BoxComoChegar">
+                        <figure><img src="img/icone_percurso.png" /></figure>
+                        <h4>PERCURSO</h4>
+                        <p>Conhe&ccedil;a o percurso da prova e treine o amig&atilde;o!</p>
+                        <a class="singleButton btn-verde" href="#PercursoFrame">VER MAPA</a>
+                    </div>
+                    
+                    <div class="BoxComoChegar">
+                        <figure><img src="img/icone_fotos.png" /></figure>
+                        <h4>FOTOS</h4>
+                        <p>Confira as fotos da 5&ordf; edi&ccedil;&atilde;o da C&atilde;orrida!</p>
+                        <a class="singleButton btn-verde" href="#FotosFrame">VAMOS L&Aacute;!</a>
+                    </div>
+                    
+                    <!-- <div class="BoxComoChegar">
+                        <figure><img src="img/icone_fotos.png" /></figure>
+                        <h4>APP Aricanduva</h4>
+                        <p>Baixe o aplicativo oficial do Shopping Aricanduva.</p>
+                        <a class="singleButton btn-verde" href="#FotosFrame">VAMOS L&Aacute;!</a>
+                    </div> -->
+                    
+                    <!-- <div class="BoxComoChegar">
+                        <figure><img src="img/icone_doacao.png" /></figure>
+                        <h4>AJUDAR &Eacute; BOM!</h4>
+                        <p>Parte da renda vai para uma entidade assistencial!</p>
+                        <a class="singleButton btn-verde" href="" data-toggle="modal" data-target="#doacao">SAIBA MAIS</a>
+                    </div> -->
+                
+                    <div class="clear"></div>
+                
+                </div>
+                
+                <div class="clear"></div>
+                            
+            </div>
+                            
+		</section>
+            
+            
+        
+		<section id="FotosFrame" class="FullContainer" style="height: auto; background:url(img/patinhas_claro.png) #24b0ce; background-position: center ; background-repeat:repeat-x ;">
+        
+            <div class="inside-container" id="BoxFotos">
+                <h3 style="color: #fff;">Galeria de Fotos da 6&ordf; C&atilde;orrida</h3>
+                <nav id="ImageGallery">
+                    <ul>
+                        <li><a href="galeria/0001.jpg" data-lightbox="roadtrip"><img src="galeria/0001.jpg"></a></li>
+                        <li><a href="galeria/0002.jpg" data-lightbox="roadtrip"><img src="galeria/0002.jpg"></a></li>
+                        <li><a href="galeria/0003.jpg" data-lightbox="roadtrip"><img src="galeria/0003.jpg"></a></li>
+                        <li><a href="galeria/0004.jpg" data-lightbox="roadtrip"><img src="galeria/0004.jpg"></a></li>
+                        <li><a href="galeria/0005.jpg" data-lightbox="roadtrip"><img src="galeria/0005.jpg"></a></li>
+                        <li><a href="galeria/0006.jpg" data-lightbox="roadtrip"><img src="galeria/0006.jpg"></a></li>
+                        <li><a href="galeria/0007.jpg" data-lightbox="roadtrip"><img src="galeria/0007.jpg"></a></li>
+                        <li><a href="galeria/0008.jpg" data-lightbox="roadtrip"><img src="galeria/0008.jpg"></a></li>
+                        <li><a href="galeria/0009.jpg" data-lightbox="roadtrip"><img src="galeria/0009.jpg"></a></li>
+                        <li><a href="galeria/0010.jpg" data-lightbox="roadtrip"><img src="galeria/0010.jpg"></a></li>
+                        
+                        <li><a href="galeria/0011.jpg" data-lightbox="roadtrip"><img src="galeria/0011.jpg"></a></li>
+                        <li><a href="galeria/0012.jpg" data-lightbox="roadtrip"><img src="galeria/0012.jpg"></a></li>
+                        <li><a href="galeria/0013.jpg" data-lightbox="roadtrip"><img src="galeria/0013.jpg"></a></li>
+                        <li><a href="galeria/0014.jpg" data-lightbox="roadtrip"><img src="galeria/0014.jpg"></a></li>
+                        <li><a href="galeria/0015.jpg" data-lightbox="roadtrip"><img src="galeria/0015.jpg"></a></li>
+                        <li><a href="galeria/0016.jpg" data-lightbox="roadtrip"><img src="galeria/0016.jpg"></a></li>
+                        <li><a href="galeria/0017.jpg" data-lightbox="roadtrip"><img src="galeria/0017.jpg"></a></li>
+                        <li><a href="galeria/0018.jpg" data-lightbox="roadtrip"><img src="galeria/0018.jpg"></a></li>
+                        <li><a href="galeria/0019.jpg" data-lightbox="roadtrip"><img src="galeria/0019.jpg"></a></li>
+                        <li><a href="galeria/0020.jpg" data-lightbox="roadtrip"><img src="galeria/0020.jpg"></a></li>
+                        
+                        <li><a href="galeria/0021.jpg" data-lightbox="roadtrip"><img src="galeria/0021.jpg"></a></li>
+                        <li><a href="galeria/0022.jpg" data-lightbox="roadtrip"><img src="galeria/0022.jpg"></a></li>
+                        <li><a href="galeria/0023.jpg" data-lightbox="roadtrip"><img src="galeria/0023.jpg"></a></li>
+                        <li><a href="galeria/0024.jpg" data-lightbox="roadtrip"><img src="galeria/0024.jpg"></a></li>
+                        <li><a href="galeria/0025.jpg" data-lightbox="roadtrip"><img src="galeria/0025.jpg"></a></li>
+                        <li><a href="galeria/0026.jpg" data-lightbox="roadtrip"><img src="galeria/0026.jpg"></a></li>
+                        <li><a href="galeria/0027.jpg" data-lightbox="roadtrip"><img src="galeria/0027.jpg"></a></li>
+                        <li><a href="galeria/0028.jpg" data-lightbox="roadtrip"><img src="galeria/0028.jpg"></a></li>
+                        <li><a href="galeria/0029.jpg" data-lightbox="roadtrip"><img src="galeria/0029.jpg"></a></li>
+                        <li><a href="galeria/0030.jpg" data-lightbox="roadtrip"><img src="galeria/0030.jpg"></a></li>
+                        
+                        <li><a href="galeria/0031.jpg" data-lightbox="roadtrip"><img src="galeria/0031.jpg"></a></li>
+                        <li><a href="galeria/0032.jpg" data-lightbox="roadtrip"><img src="galeria/0032.jpg"></a></li>
+                        <li><a href="galeria/0033.jpg" data-lightbox="roadtrip"><img src="galeria/0033.jpg"></a></li>
+                        <li><a href="galeria/0034.jpg" data-lightbox="roadtrip"><img src="galeria/0034.jpg"></a></li>
+                        <li><a href="galeria/0035.jpg" data-lightbox="roadtrip"><img src="galeria/0035.jpg"></a></li>
+                        <li><a href="galeria/0036.jpg" data-lightbox="roadtrip"><img src="galeria/0036.jpg"></a></li>
+                        <li><a href="galeria/0037.jpg" data-lightbox="roadtrip"><img src="galeria/0037.jpg"></a></li>
+                        <li><a href="galeria/0038.jpg" data-lightbox="roadtrip"><img src="galeria/0038.jpg"></a></li>
+                        <li><a href="galeria/0039.jpg" data-lightbox="roadtrip"><img src="galeria/0039.jpg"></a></li>
+                        <li><a href="galeria/0040.jpg" data-lightbox="roadtrip"><img src="galeria/0040.jpg"></a></li>
+                        
+                        <li><a href="galeria/0041.jpg" data-lightbox="roadtrip"><img src="galeria/0041.jpg"></a></li>
+                        <li><a href="galeria/0042.jpg" data-lightbox="roadtrip"><img src="galeria/0042.jpg"></a></li>
+                        <li><a href="galeria/0043.jpg" data-lightbox="roadtrip"><img src="galeria/0043.jpg"></a></li>
+                        <li><a href="galeria/0044.jpg" data-lightbox="roadtrip"><img src="galeria/0044.jpg"></a></li>
+                        <li><a href="galeria/0045.jpg" data-lightbox="roadtrip"><img src="galeria/0045.jpg"></a></li>
+                        <li><a href="galeria/0046.jpg" data-lightbox="roadtrip"><img src="galeria/0046.jpg"></a></li>
+						<li><a href="galeria/0047.jpg" data-lightbox="roadtrip"><img src="galeria/0047.jpg"></a></li>
+						<li><a href="galeria/0048.jpg" data-lightbox="roadtrip"><img src="galeria/0048.jpg"></a></li>
+						<li><a href="galeria/0049.jpg" data-lightbox="roadtrip"><img src="galeria/0049.jpg"></a></li>
+						<li><a href="galeria/0050.jpg" data-lightbox="roadtrip"><img src="galeria/0050.jpg"></a></li>
+						
+						<li><a href="galeria/0051.jpg" data-lightbox="roadtrip"><img src="galeria/0051.jpg"></a></li>
+                        <li><a href="galeria/0052.jpg" data-lightbox="roadtrip"><img src="galeria/0052.jpg"></a></li>
+                        <li><a href="galeria/0053.jpg" data-lightbox="roadtrip"><img src="galeria/0053.jpg"></a></li>
+                        <li><a href="galeria/0054.jpg" data-lightbox="roadtrip"><img src="galeria/0054.jpg"></a></li>
+                        <li><a href="galeria/0055.jpg" data-lightbox="roadtrip"><img src="galeria/0055.jpg"></a></li>
+                        <li><a href="galeria/0056.jpg" data-lightbox="roadtrip"><img src="galeria/0056.jpg"></a></li>
+						<li><a href="galeria/0057.jpg" data-lightbox="roadtrip"><img src="galeria/0057.jpg"></a></li>
+						<li><a href="galeria/0058.jpg" data-lightbox="roadtrip"><img src="galeria/0058.jpg"></a></li>
+						<li><a href="galeria/0059.jpg" data-lightbox="roadtrip"><img src="galeria/0059.jpg"></a></li>
+						<li><a href="galeria/0060.jpg" data-lightbox="roadtrip"><img src="galeria/0060.jpg"></a></li>
+						
+						<li><a href="galeria/0061.jpg" data-lightbox="roadtrip"><img src="galeria/0061.jpg"></a></li>
+                        <li><a href="galeria/0062.jpg" data-lightbox="roadtrip"><img src="galeria/0062.jpg"></a></li>
+                        <li><a href="galeria/0063.jpg" data-lightbox="roadtrip"><img src="galeria/0063.jpg"></a></li>
+                        <li><a href="galeria/0064.jpg" data-lightbox="roadtrip"><img src="galeria/0064.jpg"></a></li>
+                        <li><a href="galeria/0065.jpg" data-lightbox="roadtrip"><img src="galeria/0065.jpg"></a></li>
+                        <li><a href="galeria/0066.jpg" data-lightbox="roadtrip"><img src="galeria/0066.jpg"></a></li>
+						<li><a href="galeria/0067.jpg" data-lightbox="roadtrip"><img src="galeria/0067.jpg"></a></li>
+						<li><a href="galeria/0068.jpg" data-lightbox="roadtrip"><img src="galeria/0068.jpg"></a></li>
+						<li><a href="galeria/0069.jpg" data-lightbox="roadtrip"><img src="galeria/0069.jpg"></a></li>
+						<li><a href="galeria/0070.jpg" data-lightbox="roadtrip"><img src="galeria/0070.jpg"></a></li>
+						
+						<li><a href="galeria/0071.jpg" data-lightbox="roadtrip"><img src="galeria/0071.jpg"></a></li>
+                        <li><a href="galeria/0072.jpg" data-lightbox="roadtrip"><img src="galeria/0072.jpg"></a></li>
+                        <li><a href="galeria/0073.jpg" data-lightbox="roadtrip"><img src="galeria/0073.jpg"></a></li>
+                        <li><a href="galeria/0074.jpg" data-lightbox="roadtrip"><img src="galeria/0074.jpg"></a></li>
+                        <li><a href="galeria/0075.jpg" data-lightbox="roadtrip"><img src="galeria/0075.jpg"></a></li>
+                        <li><a href="galeria/0076.jpg" data-lightbox="roadtrip"><img src="galeria/0076.jpg"></a></li>
+						<li><a href="galeria/0077.jpg" data-lightbox="roadtrip"><img src="galeria/0077.jpg"></a></li>
+						<li><a href="galeria/0078.jpg" data-lightbox="roadtrip"><img src="galeria/0078.jpg"></a></li>
+						<li><a href="galeria/0079.jpg" data-lightbox="roadtrip"><img src="galeria/0079.jpg"></a></li>
+						<li><a href="galeria/0080.jpg" data-lightbox="roadtrip"><img src="galeria/0080.jpg"></a></li>
+						
+						<li><a href="galeria/0081.jpg" data-lightbox="roadtrip"><img src="galeria/0081.jpg"></a></li>
+                        <li><a href="galeria/0082.jpg" data-lightbox="roadtrip"><img src="galeria/0082.jpg"></a></li>
+                        <li><a href="galeria/0083.jpg" data-lightbox="roadtrip"><img src="galeria/0083.jpg"></a></li>
+                        <li><a href="galeria/0084.jpg" data-lightbox="roadtrip"><img src="galeria/0084.jpg"></a></li>
+                        <li><a href="galeria/0085.jpg" data-lightbox="roadtrip"><img src="galeria/0085.jpg"></a></li>
+                        <li><a href="galeria/0086.jpg" data-lightbox="roadtrip"><img src="galeria/0086.jpg"></a></li>
+						<li><a href="galeria/0087.jpg" data-lightbox="roadtrip"><img src="galeria/0087.jpg"></a></li>
+						<li><a href="galeria/0088.jpg" data-lightbox="roadtrip"><img src="galeria/0088.jpg"></a></li>
+						<li><a href="galeria/0089.jpg" data-lightbox="roadtrip"><img src="galeria/0089.jpg"></a></li>
+						<li><a href="galeria/0090.jpg" data-lightbox="roadtrip"><img src="galeria/0090.jpg"></a></li>
+						
+						<li><a href="galeria/0091.jpg" data-lightbox="roadtrip"><img src="galeria/0091.jpg"></a></li>
+                        <li><a href="galeria/0092.jpg" data-lightbox="roadtrip"><img src="galeria/0092.jpg"></a></li>
+                        <li><a href="galeria/0093.jpg" data-lightbox="roadtrip"><img src="galeria/0093.jpg"></a></li>
+                        <li><a href="galeria/0094.jpg" data-lightbox="roadtrip"><img src="galeria/0094.jpg"></a></li>
+                        <li><a href="galeria/0095.jpg" data-lightbox="roadtrip"><img src="galeria/0095.jpg"></a></li>
+                        <li><a href="galeria/0096.jpg" data-lightbox="roadtrip"><img src="galeria/0096.jpg"></a></li>
+						<li><a href="galeria/0097.jpg" data-lightbox="roadtrip"><img src="galeria/0097.jpg"></a></li>
+						<li><a href="galeria/0098.jpg" data-lightbox="roadtrip"><img src="galeria/0098.jpg"></a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </nav>                  
+            </div>
+            
+                            
+        </section>
+       
+            
+        
+        <section id="PercursoFrame" class="FullContainer" style="height: auto; background: url(img/patinhas_escuro.png); background-position: center; background-repeat:repeat-x; position: relative;">
+        
+            <div class="inside-container" id="BoxPercurso">
+                <h3 id="TitlePercurso">PERCURSO E ARENA</h3>
+               
+                <figure>
+                    <img src="img/percurso.jpg" alt="Mapa de Percurso" style="width: 100%; max-width: 1198px; margin: 10px auto; " />
+                </figure>
+    
+            </div>
+            
+            <div id="Dog" style="position: absolute; right: 1%; bottom: 0;" >
+            	<img src="img/dog.png" alt="Labrador olhando atentamente" />
+            </div>
+                            
+        </section>
+        
+        
+        
+        
+        <section id="Dicas" class="FullContainer" style="height: auto; background: #57301C url(img/patinhas_escuro.png); background-position: center; background-repeat:repeat-x;">
+        
+            <div class="inside-container" id="BoxPercurso">
+                <h3 id="TitlePercurso" style="color: #fff;">DICAS PARA SEU PET</h3>
+                
+                <br />
+                
+                <div class="dica">
+                <span>1</span>
+                	<p>O seu cachorro deve ser adestrado e acostumado a correr ao seu lado, sem disparar na frente, o que poderia causar algum tipo de acidente ou les&atilde;o. Por mais que o seu peludo seja treinado e obediente, jamais corra com ele solto. Escolha uma guia que permita que o c&atilde;o fique pr&oacute;ximo de voc&ecirc; durante toda a corrida e assim voc&ecirc; ter&aacute; mais controle sobre ele.</p>
+                </div>
+                
+                <div class="dica">
+                <span>2</span>
+                	<p>De acordo com a lei estadual n.&deg; 11.531/03, a condu&ccedil;&atilde;o em vias p&uacute;blicas, logradouros ou locais de acesso p&uacute;blico exige a utiliza&ccedil;&atilde;o de coleira, guia curta e enforcador para c&atilde;es das ra&ccedil;as: mastim napolitano, pit bull, rottweiller, american stafforshire terrier e ra&ccedil;as derivadas ou varia&ccedil;&otilde;es de qualquer das ra&ccedil;as citadas. As focinheiras de passeio oferecem conforto ao animal e impedem acidentes caso ele tente avan&ccedil;ar ou atacar algu&eacute;m.</p>
+                </div>
+                
+                <div class="dica">
+                <span>3</span>
+                	<p>Qualquer cachorro saud&aacute;vel pode e deve caminhar ou passear com o seu dono. Mas se o objetivo &eacute; correr, existem ra&ccedil;as mais adequadas para esse tipo de atividade. C&atilde;es de companhia e de pequeno porte t&ecirc;m patas curtas, o que limitaria as passadas do dono. C&atilde;es de porte m&eacute;dio como labradores, goldens, d&aacute;lmatas, pastores e borders s&atilde;o ideais para acompanh&aacute;-lo em uma corrida. Seu c&atilde;o n&atilde;o &eacute; de ra&ccedil;a? Sem crise! Vira-latas do tamanho desses cachorros citados tamb&eacute;m d&atilde;o conta do recado.</p>
+                </div>
+                
+                <div class="dica">
+                <span>4</span>
+                	<p>Se o seu c&atilde;o estiver gordinho, antes de transform&aacute;-lo em um corredor voc&ecirc; deve submet&ecirc;-lo a uma dieta com direito a ra&ccedil;&atilde;o especial, de modo a poupar suas articula&ccedil;&otilde;es. Animais com menos de um ano e meio ou com mais de sete anos devem ficar fora da corrida. C&atilde;es jovens ou velhos demais podem n&atilde;o suportar o pique do exerc&iacute;cio, assim como cadelas gr&aacute;vidas ou em fase de amamenta&ccedil;&aacute;o.</p>
+                </div>
+                
+                <div class="dica">
+                <span>5</span>
+                	<p>Se voc&ecirc; quer que seu c&atilde;o o acompanhe na corrida e ele ainda n&atilde;o est&aacute; acostumado, apesar de ter uma natureza privilegiada para tal, comece o treinamento com modera&ccedil;&atilde;o. Aumente a dist&aacute;ncia gradativamente, a cada semana, at&eacute; que o seu cachorro se sinta mais confort&aacute;vel com o exerc&iacute;cio.</p>
+                </div>
+                <div class="dica">
+                <span>6</span>
+                	<p>Durante a corrida, o seu c&atilde;o pode dar sinais de cansa&ccedil;o e de que n&atilde;o quer mais correr (ou de que precisa fazer suas necessidades). Um dos primeiros sinais &eacute; tentar parar se jogando ou se arrastando no ch&atilde;o. Se notar algum desses sinais, &eacute; hora de descansar. Voc&ecirc; tamb&eacute;m deve parar a cada 15 ou 20 minutos de corrida e oferecer &aacute;gua ao seu c&atilde;o. Assim como voc&ecirc;, o animal tamb&eacute;m precisa ser hidratado e &aacute;gua fresca &eacute; o suficiente. Se ele n&atilde;o quiser beber naquele momento, n&atilde;o insista e espere. &Eacute; muito importante respeitar os limites do animal e fazer com que a corrida seja proveitosa para ambos.</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+        
+        <section id="KitFrame" class="FullContainer" style="height: auto; background: url(img/patinhas_escuro.png); background-position: center; background-repeat:repeat-x;">
+        
+			<div class="inside-container">
+                <h3 id="TitlePercurso">KIT DO ATLETA</h3>
+            	<figure>
+	            	<img src="img/kit_completo.png" alt="Kit do Atleta" style="width: 100%; max-width: 1200px; margin: 0 auto;" />
+                    <!-- <p>Corra por apenas</p>
+                    <h2 style="font-size: 48px !important; margin-top: -10px; color:#24b0ce !important;">R$ 30,00*</h3> -->
+                	<figcaption>*Kit cont&eacute;m medalha e n&uacute;mero de peito, al&eacute;m de camiseta cortesia.<br>Imagem meramente ilustrativa sujeita a altera&ccedil;&atilde;o de layout e cor, al&eacute;m de inclus&atilde;o e exclus&atilde;o de itens sem pr&eacute;vio aviso.</figcaption>
+                </figure>
+                <!-- <a class="singleButton btn-verde" href="inscricao.asp">Inscreva-se!</a> -->
+                <a class="singleButton btn-verde" style="background: #0a5f70;" href="" data-toggle="modal" data-target="#kits">Entrega de Kit</a>
+			</div>
+        </section>
+            
+        <footer class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <figure>
+                            <img src="img/logo.png" class="logo-rodape" alt="Caorrida Aricanduva" title="Caorrida Aricanduva" class="img-center img-responsive">
+                        </figure>
+                        <nav id="footer-menu" style="padding: 20px 0;">
+                            <ul>                    
+                                <li><a href="#Topo" class="scroll" >Home</a></li>
+                                <!-- <li><a href="inscricao.asp">Inscri&ccedil;&otilde;es</a></li> -->
+                                <li><a href="" data-toggle="modal" data-target="#regulamento">Regulamento</a></li>
+                                <li><a href="" data-toggle="modal" data-target="#resultados">Resultados</a></li>
+                                <li><a href="#FotosFrame" class="scroll">Fotos</a></li>
+                                <li><a href="#TitlePercurso" class="scroll">Percurso</a></li>
+                                <li><a href="" data-toggle="modal" data-target="#fale-conosco">Fale Conosco</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!--#include file="patrocinadores.inc"-->
+
+                <!--Relatorios Sociais-->
+                <div class="row">
+                    <h4 style="color: #fff;">Relat&oacute;rios Sociais Yescom</h4>
+                    <div class="col-md-4 col-sm-4" style="padding: 5px;">
+                        <a href="http://www.yescom.com.br/2019/maratonadesaopaulo/site/files/relatorio-chega-de-trabalho-infantil.pdf" target="_blank">
+                            <img src="http://www.yescom.com.br/2019/maratonadesaopaulo/site/img/relatorio-1.jpg" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-4" style="padding: 5px;">
+                        <a href="http://www.yescom.com.br/2019/maratonadesaopaulo/site/files/relatorio-sustentabilidade.pdf" target="_blank">
+                            <img src="http://www.yescom.com.br/2019/maratonadesaopaulo/site/img/relatorio-2.jpg" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-4" style="padding: 5px;">
+                        <a href="http://www.yescom.com.br/2019/maratonadesaopaulo/site/files/relatorio-responsabilidade-social.pdf" target="_blank">
+                            <img src="http://www.yescom.com.br/2019/maratonadesaopaulo/site/img/relatorio-3.jpg" class="img-responsive">
+                        </a>
+                    </div>
+                </div>
+                <!--Fim Relatorios Sociais-->
+                <div class="row" id="info-rodape">
+                    <div class="col-md-4">
+                        <h4>Calend&aacute;rio de provas</h4>
+                        <a href="http://www.yescom.com.br/site/calendario.html" target="_blank">
+                            <img src="img/qr.jpg" alt="Confira outros eventos da Yescom" class="img-responsive img-center" style="width: 92px;">
+                        </a>
+                    </div>
+
+                    <nav class="footer-menu col-md-4">
+                        <h4 class="titulos">Baixe o App Yescom</h4>
+                        <ul>
+                            <li>
+                                <a href="https://itunes.apple.com/us/app/yescom/id1253048187?ls=1&mt=8" target="_blank">
+                                <img src="img/app_AppleStore.png" style="width: 100%; max-width: 128px; margin: 5px auto;" alt="Baixe seu App na Apple Store"></a>
+                            </li>
+                            <li>
+                                <a href="https://play.google.com/store/apps/details?id=com.app_yescom.layout" target="_blank">
+                                <img src="img/app_GooglePlay.png" style="width: 100%; max-width: 128px; margin: 5px auto;" class="img-responsive" alt="Baixe seu App no Google Play"></a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="col-md-4">
+                        <h4>Redes sociais</h4>
+                        <ul class="social-menu">
+                            <li><a href="https://www.facebook.com/yescombr" target="_blank"><img src="img/ico-facebook.svg" alt="Facebook"></a></li>
+                            <li><a href="https://twitter.com/yescom" target="_blank"><img src="img/ico-twitter.svg" alt="Twitter"></a></li>
+                            <li><a href="https://www.instagram.com/yescom/" target="_blank"><img src="img/ico-instagram.svg" alt="Instagram"></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCQHmIm0GLFzg3YtLmlFpVAA" target="_blank"><img src="img/ico-youtube.svg" alt="Youtube"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="background: #fff">
+                <p style="padding: 10px 0 2px 0; font-size: 12px !important;">Copyright &copy; Yescom 1998 - 2018 - Todos os Direitos Reservados</p>
+            </div>      
+        </footer>
+
+    </div>
+    
+    
+    
+    <!-- MODAL BOXES -->
+            
+        <div id="regulamento" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+        
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-default" onClick="javascript:window.history.go(-1)">Voltar</button>
+              </div>
+              <div class="modal-body">
+                <!--INICIO DO REGULAMENTO.ASP-->
+                  <div id="reg-top" align="center">
+                  
+                      <p style="color:#00f; font-weight:bold;">Importante:</p>
+                      <p style="color:#999; font-style:italic;">Este regulamento poder&aacute; sofrer altera&ccedil;&otilde;es necess&aacute;rias por quest&otilde;es t&eacute;cnicas a crit&eacute;rio da organiza&ccedil;&atilde;o ou ainda por motivos legais ou motivo de for&ccedil;a maior.</p>
+                      <p>
+                          <%
+                              Dim ItensPorLinha
+                              Dim Contador
+                              Dim ContadorGeral
+                              ItensPorLinha = 2
+                              
+                              StringSQL = "SELECT Regulamento_ID FROM vw_yes_eve_regulamentos WHERE evento_yescom_ID = " & evento_ID & " AND TipoRegulamento_ID = 1"
+                              rs.Open StringSQL, conexao
+                              if not rs.EOF then
+                              Regulamento_ID = rs("Regulamento_ID")
+                              else
+                              Regulamento_ID = 0
+                              end if
+                              rs.Close
+                              
+                              StringSQL = "SELECT count(*) as TotalItens FROM vw_yes_eve_itens_regulamento WHERE Regulamento_ID = " & Regulamento_ID
+                              rs.Open StringSQL, conexao
+                              if not rs.EOF then
+                              TotalItens = rs("TotalItens")
+                              else
+                              TotalItens = 0
+                              end if
+                              rs.Close
+                              
+                              If Regulamento_ID > 0 then
+                              StringSQL = "SELECT Ordenacao, Titulo FROM vw_yes_eve_itens_regulamento WHERE Regulamento_ID = " & Regulamento_ID & " ORDER BY Ordenacao"
+                              rs.Open StringSQL, conexao
+                              If not rs.EOF then
+                              Contador = 0
+                              ContadorGeral = 0
+                              while not rs.EOF
+                              Contador = Contador + 1
+                              ContadorGeral = ContadorGeral + 1
+                          %>
+                          
+                            <a class="reg-link" href="#item<%=rs("Ordenacao")%>"><%=rs("Titulo")%></a>
+                          
+    <%
+                              If Contador = ItensPorLinha  Then
+                              If CInt(ContadorGeral) < CInt(TotalItens) Then
+                              response.write "<br>"
+                              Contador = 0
+                              End If
+                              Else
+                              If CInt(ContadorGeral) < CInt(TotalItens) Then
+                              If Len(rs("Titulo")) <= 35 then
+                              response.write " | "
+                              Else
+                              response.write "<br>"
+                              Contador = 0
+                              End If
+                              Else
+                              response.write "&nbsp;"
+                              End If
+                              End If
+                              rs.MoveNext
+                              Wend
+                              End If
+                              rs.Close
+                              End IF
+                          %> </p>
+                          
+                          <%
+                              If TotalItens > 0 Then
+                              StringSQL = "SELECT Ordenacao, Titulo, Conteudo FROM vw_yes_eve_itens_regulamento WHERE Regulamento_ID = " & Regulamento_ID & " ORDER BY Ordenacao"
+                              response.Write(StrngSQL)
+                              rs.Open StringSQL, conexao
+                              If not rs.EOF then
+                              While Not rs.EOF
+                              Ordenacao	=	rs("Ordenacao")
+                              Titulo		=	rs("Titulo")
+                              Conteudo	=	rs("Conteudo")
+                          %>
+                          
+                          <br>
+                          
+                          <div id="reg-body" align="left">	
+                          
+                              <h4><a name="item<%=Ordenacao%>" id="item<%=Ordenacao%>"><%=Ordenacao%> - <%=Titulo%></a></h4>	
+                              
+                              <p class="reg-text"><%=Conteudo%></p>
+                          
+                          </div>
+                          
+                          <br>
+                          
+                          <figure class="foto"><a href="#reg-top"><span class="glyphicon glyphicon-chevron-up"></span></figure>
+                          <br>
+                          
+                          <%										
+                          rs.MoveNext
+                          Wend
+                          End If
+                          Else
+                          %>
+                          <p>  O regulamento ser&aacute; disponibilizado em breve. </p>
+                          <% end if %>
+                  </div>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+        
+          </div>
+        </div>
+            
+            
+        <div id="kits" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+        
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-default" onClick="javascript:window.history.go(-1)">Voltar</button>
+              </div>
+              <div class="modal-body">
+                <iframe width="auto" height="auto" src="https://www.yescom.com.br/codigo_comum/botoes/itens.asp?botao_ID=2512&evento_yescom_ID=1931"></iframe>
+              </div>
+              <div class="modal-footer">
+    
+              </div>
+            </div>
+        
+          </div>
+        </div>
+            
+            
+        <div id="resultados" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+        
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-default" onClick="javascript:window.history.go(-1)">Voltar</button>
+              </div>
+              <div class="modal-body">
+                <iframe width="auto" height="auto" src="http://www.yescom.com.br/codigo_comum/classificacao/codigo/p_classificacao01_v1.asp?evento_yescom_ID=1931"></iframe>
+              </div>
+              <div class="modal-footer">
+    
+              </div>
+            </div>
+        
+          </div>
+        </div>
+            
+            
+        <div id="fale-conosco" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+        
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-default" onClick="javascript:window.history.go(-1)">Voltar</button>
+              </div>
+              <div class="modal-body">
+                <iframe width="auto" height="auto" src="https://www.yescom.com.br/codigo_comum/faq/codigos/faleconosco3.asp?evento_yescom_id=1931"></iframe>
+              </div>
+              <div class="modal-footer">
+    
+              </div>
+            </div>
+        
+          </div>
+        </div>
+        
+        
+        <div id="doacao" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+        
+            <div class="modal-content">
+              <div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+              </div>
+					<div class="modal-body">
+                		<h2>Ajudamos quem precisa</h2>
+                        <br />
+                        <p>O Shopping far&aacute; a doa&ccedil;&atilde;o de 10% do valor l&iacute;quido arrecadado com a venda de inscri&ccedil;&otilde;es para a Par&oacute;quia Santa Terezinha - Cidade L&iacute;der.</p>
+                        <img src="img/doacao-santa-terezinha.png" alt="Paroquia Santa Terezinha" title="Paroquia Santa Terezinha">
+                        
+              		</div>
+              <div class="modal-footer">
+
+              </div>
+            </div>
+        
+          </div>
+		</div>
+            
+		<!-- END MODAL BOXES -->
+    
+</body>
+
+</html>
