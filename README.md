@@ -3,7 +3,7 @@ Structure of code SAAS and HTML 5 with running registration theme
 
 1 - Change documents extention from asp. to html to view in your browser. For exemplo index.asp to index.html
 
-2 - Retire this part case it's serves only to asp. extetion.
+2 - Retire this part cause it's serves only to asp. extetion.
 <%
 OpenConn
 Set rs = Server.CreateObject("ADODB.Recordset")
